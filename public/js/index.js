@@ -14,10 +14,6 @@ socket.on('disconnect', function () {
     console.log('Disconnect from SERVER!');
 });
 
-socket.on('newEmail', function (email) {
-    console.log("New Email!" , email);
-});
-
 socket.on('newMessage', function (message) {
     console.log("New Message!" , message);
 });
