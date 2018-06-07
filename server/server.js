@@ -21,13 +21,30 @@ io.on('connection', (socket) => {
     //     createdAt: 433
     // });
 
+    socket.emit('welcomeMessage', {
+        from: 'Admin',
+        text: "Welcome to the chat!",
+        createdAt: new Date().getTime()
+    });
+
+    socket.broadcast.emit('joinMessage', { 
+            from: "Admin",
+            text: "New User joined!",
+            createdAt: new Date().getTime()
+    }); 
+
     socket.on('createMessage', (message) => {
         console.log('createMessage', message); 
-        io.emit('newMessage', {
-            from: message.from,
-            text: message.text,
-            createdAt: new Date().getTime()
-        });
+        // io.emit('newMessage', { //Emits to EVERY socket
+        //     from: message.from,
+        //     text: message.text,
+        //     createdAt: new Date().getTime()
+        // });
+        // socket.broadcast.emit('newMessage', { //Emits to every socket but that one.
+        //     from: message.from,
+        //     text: message.text,
+        //     createdAt: new Date().getTime()
+        // }); 
     });
 
     socket.on('disconnect', () => {
