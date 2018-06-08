@@ -28,5 +28,6 @@ describe('generateLocationMessage', () => {
         console.log("THIS!!" ,res.url)
         expect(res.url).toBe(`https://www.google.ca/maps?q=${lat},${long}`);
         expect(res.from).toBe('Admin');
+        expect(typeof res.createdAt).toBe('number');
     });
 });
