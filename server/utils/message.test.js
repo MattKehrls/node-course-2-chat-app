@@ -25,7 +25,7 @@ describe('generateLocationMessage', () => {
         var long = -80.54940069999999;
         var res = generateLocationMessage(from, lat, long);
 
-        console.log("THIS!!" ,res.url)
+        // console.log("THIS!!" ,res.url);
         expect(res.url).toBe(`https://www.google.ca/maps?q=${lat},${long}`);
         expect(res.from).toBe('Admin');
         expect(typeof res.createdAt).toBe('number');
