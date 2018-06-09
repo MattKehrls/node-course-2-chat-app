@@ -27,17 +27,17 @@ socket.on('connect', function () {
             alert(err);
             window.location.href = '/';
         } else {
-            console.log("No ERROR");
+            // console.log("No ERROR");
         }
     });
 });
 
 socket.on('disconnect', function () {
-    console.log('Disconnected from SERVER!');
+    // console.log('Disconnected from SERVER!');
 });
 
 socket.on('updateUserList', function (users) {
-    console.log('users list: ', users);
+    // console.log('users list: ', users);
     var ol = $('<ol></ol>');
 
     users.forEach(function (user) {
@@ -97,7 +97,6 @@ jQuery('#message-form').on('submit', function (e) {
     var messageTextBox = $('[name=message]');
 
     socket.emit('createMessage', {
-        from: 'User',
         text: messageTextBox.val()
     }, function () {
         messageTextBox.val('')
